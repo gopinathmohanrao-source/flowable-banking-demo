@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: customer-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn customer-api.app:app
+    plan: free
+    envVars:
+      - key: PORT
+        value: 10000
+
+  - type: web
+    name: risk-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn risk-api.app:app
+    plan: free
+    envVars:
+      - key: PORT
+        value: 10001
