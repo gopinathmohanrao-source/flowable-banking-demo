@@ -17,6 +17,8 @@ def risk_record():
 def get_records():
     return jsonify({"count": len(records), "records": records})
 
+import os
+
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 10001))
+    port = int(os.environ.get("PORT", 8080))
     app.run(host="0.0.0.0", port=port)
