@@ -4,6 +4,11 @@ import os
 app = Flask(__name__)
 records = []
 
+
+@app.route("/")
+def home():
+    return "Risk API is running successfully!"
+
 @app.post("/risk-record")
 def risk_record():
     data = request.get_json()
@@ -24,5 +29,5 @@ def home():
     return {"message": "Risk API is running"}, 200
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 10001))
+    port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
