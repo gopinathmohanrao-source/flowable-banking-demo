@@ -4,11 +4,6 @@ import os
 app = Flask(__name__)
 records = []
 
-
-@app.route("/")
-def home():
-    return "Risk API is running successfully!"
-
 @app.post("/risk-record")
 def risk_record():
     data = request.get_json()
